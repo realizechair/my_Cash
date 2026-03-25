@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プレビュー：公認会計士と税理士の違い｜つなぐ会計事務所</title>
+<style>
+  /* ── リセット & 基本 ── */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #2a2a2a;
+    font-family: "Meiryo", "Yu Gothic", "Hiragino Sans", sans-serif;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+  h1 {
+    color: #aaa;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    margin-bottom: -30px;
+  }
+
+  /* ── スライド共通 ── */
+  .slide {
+    width: 960px;
+    height: 540px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    flex-shrink: 0;
+  }
+  .slide-number {
+    color: #888;
+    font-size: 13px;
+    align-self: flex-start;
+    margin-left: calc(50% - 480px);
+  }
+
+  /* ════════════════════════════════
+     スライド 1：タイトル
+  ════════════════════════════════ */
+  .slide1 { background: #00338D; }
+
+  .slide1 .accent-bar {
+    position: absolute; left: 0; top: 0;
+    width: 36px; height: 100%;
+    background: #00A3A1;
+  }
+  .slide1 .deco1 {
+    position: absolute; right: 0; bottom: 0;
+    width: 276px; height: 180px;
+    background: #005EB8;
+    opacity: 0.8;
+  }
+  .slide1 .deco2 {
+    position: absolute; right: 0; bottom: 0;
+    width: 204px; height: 122px;
+    background: #0091DA;
+    opacity: 0.7;
+  }
+  .slide1 .company {
+    position: absolute; left: 58px; top: 29px;
+    color: #00A3A1;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+  }
+  .slide1 .title-main {
+    position: absolute; left: 58px; top: 130px;
+    color: #fff;
+    font-size: 58px;
+    font-weight: bold;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .slide1 .title-sub {
+    position: absolute; left: 58px; top: 305px;
+    color: #0091DA;
+    font-size: 38px;
+    font-weight: normal;
+  }
+  .slide1 .subtitle {
+    position: absolute; left: 58px; top: 382px;
+    color: #6B7B8D;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+  }
+  .slide1 .footer {
+    position: absolute; left: 58px; bottom: 18px;
+    color: #6B7B8D;
+    font-size: 11px;
+  }
+
+  /* ════════════════════════════════
+     スライド 2：比較表
+  ════════════════════════════════ */
+  .slide2 { background: #fff; }
+
+  .slide2 .header {
+    position: absolute; left: 0; top: 0;
+    width: 100%; height: 79px;
+    background: #00338D;
+    display: flex; align-items: center;
+  }
+  .slide2 .header-accent {
+    width: 25px; height: 100%;
+    background: #00A3A1;
+    flex-shrink: 0;
+  }
+  .slide2 .header-title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 18px;
+  }
+
+  /* 比較テーブル */
+  .slide2 .table-wrap {
+    position: absolute;
+    top: 97px; left: 22px;
+    width: 916px;
+  }
+  .col-headers {
+    display: grid;
+    grid-template-columns: 210px 1fr 1fr;
+    gap: 0;
+    margin-bottom: 4px;
+  }
+  .col-label {
+    color: #00338D;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px 6px;
+  }
+  .col-cpa {
+    background: #005EB8;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px 4px;
+    border-radius: 3px 0 0 3px;
+  }
+  .col-tax {
+    background: #483698;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px 4px;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 210px 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid #e0e0e0;
+  }
+  .table-row:nth-child(odd) { background: #F4F6F9; }
+  .table-row:nth-child(even) { background: #fff; }
+  .cell {
+    padding: 9px 10px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #1A1A2E;
+    border-left: 3px solid #0091DA;
+  }
+  .cell:first-child {
+    color: #00338D;
+    font-weight: bold;
+    font-size: 13px;
+    border-left: none;
+  }
+
+  .slide2 .footer-bar {
+    position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 25px;
+    background: #00338D;
+    display: flex; align-items: center; padding-left: 16px;
+  }
+  .slide2 .footer-bar span {
+    color: #0091DA; font-size: 10px;
+  }
+
+  /* ════════════════════════════════
+     スライド 3：シーン別ガイド
+  ════════════════════════════════ */
+  .slide3 { background: #fff; }
+
+  .slide3 .header {
+    position: absolute; left: 0; top: 0;
+    width: 100%; height: 79px;
+    background: #00338D;
+    display: flex; align-items: center;
+  }
+  .slide3 .header-accent {
+    width: 25px; height: 100%;
+    background: #00A3A1;
+    flex-shrink: 0;
+  }
+  .slide3 .header-title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 18px;
+  }
+
+  .panels {
+    position: absolute;
+    top: 90px; left: 22px;
+    width: 916px;
+    height: 392px;
+    display: grid;
+    grid-template-columns: 1fr 48px 1fr;
+    gap: 0;
+  }
+
+  /* 左パネル */
+  .panel-cpa {
+    background: #005EB8;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .panel-cpa .panel-header {
+    background: #00286B;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 16px;
+  }
+  .panel-cpa .panel-body {
+    padding: 12px 16px;
+  }
+  .panel-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 9px;
+  }
+  .bullet {
+    width: 10px; height: 10px;
+    background: #00A3A1;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .panel-item span {
+    color: #fff;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  .panel-note {
+    color: #CCE5FF;
+    font-size: 10.5px;
+    line-height: 1.6;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* 右パネル */
+  .panel-tax {
+    background: #483698;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .panel-tax .panel-header {
+    background: #332870;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 16px;
+  }
+  .panel-tax .panel-body {
+    padding: 12px 16px;
+  }
+  .panel-tax .panel-note {
+    color: #D9D0FF;
+    font-size: 10.5px;
+    line-height: 1.6;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* VS */
+  .vs-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00338D;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  /* 注釈 */
+  .note-bar {
+    position: absolute;
+    bottom: 26px; left: 22px;
+    width: 916px;
+    background: #E8F0FE;
+    border-left: 4px solid #00338D;
+    padding: 7px 12px;
+    font-size: 10.5px;
+    color: #00338D;
+    line-height: 1.6;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .slide3 .footer-bar {
+    position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 25px;
+    background: #00338D;
+    display: flex; align-items: center; padding-left: 16px;
+  }
+  .slide3 .footer-bar span {
+    color: #0091DA; font-size: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>スライドプレビュー ／ つなぐ会計事務所</h1>
+
+<!-- ──────── スライド 1 ──────── -->
+<div class="slide-number">スライド 1 / 3　― タイトル</div>
+<div class="slide slide1">
+  <div class="accent-bar"></div>
+  <div class="deco1"></div>
+  <div class="deco2"></div>
+  <div class="company">つなぐ会計事務所</div>
+  <div class="title-main">公認会計士と税理士</div>
+  <div class="title-sub">どう違うの？</div>
+  <div class="subtitle">― 専門家の役割をわかりやすく解説します ―</div>
+  <div class="footer">お客様向け説明資料　／　つなぐ会計事務所</div>
+</div>
+
+<!-- ──────── スライド 2 ──────── -->
+<div class="slide-number">スライド 2 / 3　― 資格・業務の比較</div>
+<div class="slide slide2">
+  <div class="header">
+    <div class="header-accent"></div>
+    <div class="header-title">公認会計士と税理士　資格・業務の比較</div>
+  </div>
+
+  <div class="table-wrap">
+    <div class="col-headers">
+      <div class="col-label">比較項目</div>
+      <div class="col-cpa">公認会計士（CPA）</div>
+      <div class="col-tax">税理士（Tax Accountant）</div>
+    </div>
+
+    <div class="table-row">
+      <div class="cell">主な業務</div>
+      <div class="cell">監査・会計・税務・経営<br>コンサルティングなど</div>
+      <div class="cell">税務申告・税務相談・<br>記帳代行など</div>
+    </div>
+    <div class="table-row">
+      <div class="cell">独占業務</div>
+      <div class="cell">財務諸表の監査<br>（上場企業等への法定監査）</div>
+      <div class="cell">税務代理・税務書類作成<br>（個人・法人の確定申告等）</div>
+    </div>
+    <div class="table-row">
+      <div class="cell">試験難易度</div>
+      <div class="cell">国家最難関レベル<br>合格率 約10〜11%</div>
+      <div class="cell">難関国家資格<br>合格率 約15〜20%</div>
+    </div>
+    <div class="table-row">
+      <div class="cell">主な活躍場所</div>
+      <div class="cell">監査法人・大企業・金融機関<br>コンサルファームなど</div>
+      <div class="cell">税理士事務所・会計事務所<br>中小企業・個人事業主など</div>
+    </div>
+    <div class="table-row">
+      <div class="cell">費用感</div>
+      <div class="cell">比較的高め<br>（大企業・上場企業向け）</div>
+      <div class="cell">費用がわかりやすい<br>（中小企業・個人向け）</div>
+    </div>
+  </div>
+
+  <div class="footer-bar"><span>つなぐ会計事務所</span></div>
+</div>
+
+<!-- ──────── スライド 3 ──────── -->
+<div class="slide-number">スライド 3 / 3　― シーン別相談ガイド</div>
+<div class="slide slide3">
+  <div class="header">
+    <div class="header-accent"></div>
+    <div class="header-title">どちらに相談すればいい？　― シーン別ガイド ―</div>
+  </div>
+
+  <div class="panels">
+    <!-- 公認会計士 -->
+    <div class="panel-cpa">
+      <div class="panel-header">公認会計士に相談</div>
+      <div class="panel-body">
+        <div class="panel-item"><div class="bullet"></div><span>上場準備・IPOを目指している</span></div>
+        <div class="panel-item"><div class="bullet"></div><span>金融機関からの監査証明が必要</span></div>
+        <div class="panel-item"><div class="bullet"></div><span>M&amp;A・企業買収の財務デューデリジェンス</span></div>
+        <div class="panel-item"><div class="bullet"></div><span>内部統制・コーポレートガバナンスの整備</span></div>
+        <div class="panel-item"><div class="bullet"></div><span>大規模な資金調達を検討している</span></div>
+        <div class="panel-note">→ 大企業・上場企業・金融機関との取引が多いケースに強みがあります</div>
+      </div>
+    </div>
+
+    <!-- VS -->
+    <div class="vs-col">VS</div>
+
+    <!-- 税理士 -->
+    <div class="panel-tax">
+      <div class="panel-header">税理士に相談</div>
+      <div class="panel-body">
+        <div class="panel-item"><div class="bullet"></div><span>毎年の確定申告・法人税申告をお願いしたい</span></div>
+        <div class="panel-item"><div class="bullet"></div><span>節税対策・税務相談をしたい</span></div>
+        <div class="panel-item"><div class="bullet"></div><span>会社設立・起業時の税務手続き</span></div>
+        <div class="panel-item"><div class="bullet"></div><span>記帳代行・経理のアウトソーシング</span></div>
+        <div class="panel-item"><div class="bullet"></div><span>相続税・贈与税の申告をしたい</span></div>
+        <div class="panel-note">→ 中小企業・個人事業主・フリーランスの身近な税務パートナーとして活躍します</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note-bar">
+    ※ つなぐ会計事務所では、公認会計士・税理士双方の視点からお客様に最適なサポートをご提供します。お気軽にご相談ください。
+  </div>
+  <div class="footer-bar"><span>つなぐ会計事務所</span></div>
+</div>
+
+</body>
+</html>
